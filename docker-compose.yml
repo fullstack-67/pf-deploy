@@ -18,6 +18,8 @@ services:
       - postgres
     image: nnnpooh/preflight-backend:latest
     container_name: pf-backend
+    ports:
+      - ${PORT}:3000
     networks:
       - pf-net
     environment:
