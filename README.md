@@ -1,7 +1,8 @@
 # Get started
 
 - Make `.env` from `.env.example`
-- `docker compose up -d`
+- Change `image` names in `docker-compose.yml`
+- `docker compose up -d --force-recreate`
 
 # Setup database
 
