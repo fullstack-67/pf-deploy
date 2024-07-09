@@ -1,12 +1,11 @@
 # Get started
 
-- Make `.env` from `.env.example`
-- Change `image` names in `docker-compose.yml`
+- Make `.env` from `.env.example` (Make necessary changes.)
 - `docker compose up -d --force-recreate`
 
 # Setup database
 
-- `docker exec -it pf-db bash`
+- `docker exec -it [DB_CONTAINER_NAME] bash`
 - `psql -U postgres -d mydb`
 - Don't forget to change the password.
 
@@ -20,6 +19,6 @@ GRANT ALL ON SCHEMA public TO appuser;
 GRANT ALL ON SCHEMA drizzle TO appuser;
 ```
 
-- `docker exec -it pf-backend sh`
+- `docker exec -it [BACKEND_CONTAINER_NAME] sh`
 - `npm run db:generate`
 - `npm run db:migrate`

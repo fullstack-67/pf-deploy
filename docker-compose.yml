@@ -3,8 +3,6 @@ services:
   postgres:
     image: postgres:16-alpine
     container_name: ${PROJECT_NAME}-db 
-    # ports:
-    #   - ${POSTGRES_PORT}:5432
     volumes:
       - pf-data:/var/lib/postgresql/data
     environment:
@@ -18,8 +16,6 @@ services:
       - postgres
     image: ${BACKEND_IMAGE_NAME}
     container_name: ${PROJECT_NAME}-backend
-    # ports:
-    #   - ${BACKEND_PORT}:3000
     networks:
       - pf-net
     environment:
@@ -41,6 +37,8 @@ services:
       - NGINX_PROXY=http://${PROJECT_NAME}-backend:3000
       - NGINX_PORT=${FRONTEND_PORT}
 volumes:
-  pf-data: 
+  pf-data:
+    name: ${PROJECT_NAME}-pf-data
 networks:
   pf-net:
+    name: ${PROJECT_NAME}-pf-net
