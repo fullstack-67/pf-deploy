@@ -1,3 +1,5 @@
+# Note: This version assumes that there is only one instance of the app on VM.
+
 # Get started
 
 - Make `.env` from `.env.example`
