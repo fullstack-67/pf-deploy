@@ -1,5 +1,7 @@
 # Note: This version assumes that there is only one instance of the app on VM.
 
+If you plan to deploy multiple instances of the app on the same VM, see `server` branch.
+
 # Get started
 
 - Make `.env` from `.env.example`
