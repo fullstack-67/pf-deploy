@@ -1,4 +1,4 @@
-# Note: This version allow multiple instances of apps to be run on the same VM.
+# Note: This version allow multiple instances of the app to be deployed on the same VM.
 
 # Get started
 
