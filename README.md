@@ -1,3 +1,5 @@
+# Note: This version allow multiple instances of apps to be run on the same VM.
+
 # Get started
 
 - Make `.env` from `.env.example` (Make necessary changes.)
