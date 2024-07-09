@@ -4,7 +4,7 @@ services:
     image: postgres:16-alpine
     container_name: pf-db
     ports:
-      - 5432:${POSTGRES_PORT}
+      - ${POSTGRES_PORT}:5432
     volumes:
       - pf-data:/var/lib/postgresql/data
     environment:
@@ -16,7 +16,7 @@ services:
   backend:
     depends_on:
       - postgres
-    image: YOUR_DOCKERHUB_ACCOUNT/preflight-backend:latest
+    image: nnnpooh/preflight-backend:latest
     container_name: pf-backend
     ports:
       - ${PORT}:3000
@@ -31,7 +31,7 @@ services:
   frontend:
     depends_on:
       - backend
-    image: YOUR_DOCKERHUB_ACCOUNT/preflight-frontend:latest
+    image: nnnpooh/preflight-frontend:latest
     container_name: pf-frontend
     ports:
       - ${NGINX_PORT}:5173
