@@ -1,29 +1,28 @@
-# Note: This version assumes that there is only one instance of the app on VM.
-
-If you plan to deploy multiple instances of the app on the same VM, see `server` branch.
+# Note: This version allow multiple instances of the app to be deployed on the same VM.
 
 # Get started
 
-- Make `.env` from `.env.example`
-- Change `image` names in `docker-compose.yml`
+ลบ container image volume ของ docker
+
+- Make `.env` from `.env.example` (Make necessary changes.)
 - `docker compose up -d --force-recreate`
 
 # Setup database
 
-- `docker exec -it pf-db bash`
-- `psql -U postgres -d mydb`
+- `docker exec -it g6-db bash`
+- `psql -U SCKagura -d g6db`
 - Don't forget to change the password.
 
 ```
-REVOKE CONNECT ON DATABASE mydb FROM public;
+REVOKE CONNECT ON DATABASE g6db FROM public;
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
 CREATE USER appuser WITH PASSWORD '1234';
 CREATE SCHEMA drizzle;
-GRANT ALL ON DATABASE mydb TO appuser;
+GRANT ALL ON DATABASE g6db TO appuser;
 GRANT ALL ON SCHEMA public TO appuser;
 GRANT ALL ON SCHEMA drizzle TO appuser;
 ```
 
-- `docker exec -it pf-backend sh`
+- `docker exec -it g6-backend sh`
 - `npm run db:generate`
 - `npm run db:migrate`
