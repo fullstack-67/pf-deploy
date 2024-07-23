@@ -38,7 +38,7 @@ services:
       - NGINX_PORT=${FRONTEND_PORT}
 volumes:
   g6-data:
-    name: ${PROJECT_NAME}-g6-data
+    name: ${PROJECT_NAME}-data
 networks:
   g6-net:
-    name: ${PROJECT_NAME}-g6-net
+    external: true

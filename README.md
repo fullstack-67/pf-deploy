@@ -5,12 +5,13 @@
 ลบ container image volume ของ docker
 
 - Make `.env` from `.env.example` (Make necessary changes.)
-- `docker compose up -d --force-recreate`
+  docker compose up -d --force-recreate
 
 # Setup database
 
-- `docker exec -it g6-db bash`
-- `psql -U SCKagura -d g6db`
+docker exec -it g6-db bash
+psql -U SCKagura -d g6db
+
 - Don't forget to change the password.
 
 ```
@@ -23,6 +24,6 @@ GRANT ALL ON SCHEMA public TO appuser;
 GRANT ALL ON SCHEMA drizzle TO appuser;
 ```
 
-- `docker exec -it g6-backend sh`
-- `npm run db:generate`
-- `npm run db:migrate`
+docker exec -it g6-backend sh
+npm run db:generate
+npm run db:migrate
